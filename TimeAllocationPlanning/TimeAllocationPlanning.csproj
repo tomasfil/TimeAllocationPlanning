@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+	  <PackageId>TimeAllocationPlanner</PackageId>
+	  <Version>1.0.1</Version>
+	  <Authors>Tomáš Filip</Authors>
+	  <PackageDescription>Simple time planning and allocation during the time.</PackageDescription>
+	  <RepositoryUrl>https://github.com/tomasfil/TimeAllocationPlanning</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
