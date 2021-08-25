@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TimeAllocationPlanning.Helpers;
 
 namespace TimeAllocationPlanning.Models
 {
@@ -27,29 +28,18 @@ namespace TimeAllocationPlanning.Models
 
         public void SetFrom(int hours, int minutes)
         {
-            int hoursToSet, minutesToSet;
-            NormalizeTimeValues(hours, minutes, out hoursToSet, out minutesToSet);
+            (int hoursToSet, int minutesToSet) = TimeHelpers.NormalizeTimeValues(hours, minutes);
             From = new DateTime(Date.Year, Date.Month, Date.Day, hoursToSet, minutesToSet, 0);
         }
 
         public void SetTo(int hours, int minutes)
         {
-            int hoursToSet, minutesToSet;
-            NormalizeTimeValues(hours, minutes, out hoursToSet, out minutesToSet);
+            (int hoursToSet, int minutesToSet) = TimeHelpers.NormalizeTimeValues(hours, minutes);
 
             To = new DateTime(Date.Year, Date.Month, Date.Day, hoursToSet, minutesToSet, 0);
         }
 
-        private static void NormalizeTimeValues(int hours, int minutes, out int hoursToSet, out int minutesToSet)
-        {
-            hoursToSet = hours;
-            minutesToSet = minutes;
-            while (minutesToSet >= 60)
-            {
-                minutesToSet -= 60;
-                hoursToSet++;
-            }
-        }
+       
 
         public override string ToString()
         {
